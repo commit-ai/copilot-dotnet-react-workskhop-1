@@ -1,0 +1,21 @@
+## .NET
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+
+## Build artifacts
+[Bb]uild/
+[Ll]og/
+
+## IDE
+.vs/
+.vscode/
+
+## Node (frontend)
+**/node_modules/
+**/build/
+
+## OS
+.DS_Store
