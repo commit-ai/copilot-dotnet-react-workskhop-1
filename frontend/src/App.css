@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px;
+  background-color: #282c34;
+  border-radius: 8px;
+  overflow: hidden;
+  user-select: none;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #444;
+  pointer-events: none;
+}

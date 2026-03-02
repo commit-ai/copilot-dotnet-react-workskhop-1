@@ -1,21 +1,26 @@
-## .NET
-bin/
-obj/
-*.user
-*.rsuser
-*.suo
+# Dependencies
+node_modules/
 
-## Build artifacts
-[Bb]uild/
-[Ll]og/
+# Production build outputs
+/frontend/build/
+/backend/dist/
 
-## IDE
-.vs/
+# Testing
+/coverage/
+/frontend/coverage/
+/backend/coverage/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
 .vscode/
+.idea/
 
-## Node (frontend)
-**/node_modules/
-**/build/
-
-## OS
+# Misc
 .DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
