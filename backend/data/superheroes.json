@@ -37,5 +37,161 @@
         "power": 51,
         "combat": 95
       }
+    },
+    {
+      "id": 4,
+      "name": "Batman",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/70-batman.jpg",
+      "powerstats": {
+        "intelligence": 100,
+        "strength": 26,
+        "speed": 27,
+        "durability": 50,
+        "power": 47,
+        "combat": 100
+      }
+    },
+    {
+      "id": 5,
+      "name": "Black Widow",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/107-black-widow.jpg",
+      "powerstats": {
+        "intelligence": 75,
+        "strength": 13,
+        "speed": 33,
+        "durability": 30,
+        "power": 36,
+        "combat": 100
+      }
+    },
+    {
+      "id": 6,
+      "name": "Captain America",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/149-captain-america.jpg",
+      "powerstats": {
+        "intelligence": 69,
+        "strength": 19,
+        "speed": 35,
+        "durability": 55,
+        "power": 60,
+        "combat": 100
+      }
+    },
+    {
+      "id": 7,
+      "name": "Flash",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/263-flash.jpg",
+      "powerstats": {
+        "intelligence": 63,
+        "strength": 10,
+        "speed": 100,
+        "durability": 50,
+        "power": 68,
+        "combat": 32
+      }
+    },
+    {
+      "id": 8,
+      "name": "Aquaman",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/38-aquaman.jpg",
+      "powerstats": {
+        "intelligence": 81,
+        "strength": 85,
+        "speed": 79,
+        "durability": 80,
+        "power": 100,
+        "combat": 80
+      }
+    },
+    {
+      "id": 9,
+      "name": "Hulk",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/332-hulk.jpg",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 100,
+        "speed": 33,
+        "durability": 100,
+        "power": 98,
+        "combat": 85
+      }
+    },
+    {
+      "id": 10,
+      "name": "Iron Man",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/346-iron-man.jpg",
+      "powerstats": {
+        "intelligence": 100,
+        "strength": 85,
+        "speed": 58,
+        "durability": 85,
+        "power": 100,
+        "combat": 64
+      }
+    },
+    {
+      "id": 11,
+      "name": "Spider-Man",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/620-spider-man.jpg",
+      "powerstats": {
+        "intelligence": 90,
+        "strength": 55,
+        "speed": 67,
+        "durability": 75,
+        "power": 74,
+        "combat": 85
+      }
+    },
+    {
+      "id": 12,
+      "name": "Superman",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/644-superman.jpg",
+      "powerstats": {
+        "intelligence": 94,
+        "strength": 100,
+        "speed": 100,
+        "durability": 100,
+        "power": 100,
+        "combat": 85
+      }
+    },
+    {
+      "id": 13,
+      "name": "Thor",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/659-thor.jpg",
+      "powerstats": {
+        "intelligence": 69,
+        "strength": 100,
+        "speed": 83,
+        "durability": 100,
+        "power": 100,
+        "combat": 100
+      }
+    },
+    {
+      "id": 14,
+      "name": "Wonder Woman",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/720-wonder-woman.jpg",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 100,
+        "speed": 79,
+        "durability": 100,
+        "power": 100,
+        "combat": 100
+      }
+    },
+    {
+      "id": 15,
+      "name": "Black Panther",
+      "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/106-black-panther.jpg",
+      "powerstats": {
+        "intelligence": 88,
+        "strength": 16,
+        "speed": 30,
+        "durability": 60,
+        "power": 41,
+        "combat": 100
+      }
     }
 ]
