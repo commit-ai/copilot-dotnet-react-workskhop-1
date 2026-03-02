@@ -15,6 +15,13 @@ dotnet run
 ```
 - Check http://localhost:3000/ returns "Save the World!"
 
+**Run backend with auto-restart on file changes (.NET watch mode):**
+- In `/backend`, run:
+```
+dotnet watch run
+```
+- The backend will restart automatically when C# files change.
+
 **Run frontend:**
 - Open a NEW Terminal window in the IDE
 - From project root, navigate to dir /frontend and run
