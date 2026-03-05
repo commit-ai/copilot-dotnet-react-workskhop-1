@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Superheroes.Models;
+namespace backend.Models;
 
 public class Superhero
 {
