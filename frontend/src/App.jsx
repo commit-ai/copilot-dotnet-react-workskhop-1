@@ -1,6 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+function HeroImage({ src, alt, className, width }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (!src || hasError) {
+    return (
+      <div
+        className={`hero-image-fallback ${className || ''}`.trim()}
+        style={width ? { width, height: width } : undefined}
+        aria-label={`${alt} image unavailable`}
+      >
+        {alt.charAt(0)}
+      </div>
+    );
+  }
+
+  return <img src={src} alt={alt} className={className} width={width} onError={() => setHasError(true)} />;
+}
+
 function App() {
   const [superheroes, setSuperheroes] = useState([]);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
@@ -126,12 +144,12 @@ function App() {
 
         <div className="comparison-container">
           <div className="hero-card">
-            <img src={hero1.image} alt={hero1.name} className="hero-image" />
+            <HeroImage src={hero1.image} alt={hero1.name} className="hero-image" />
             <h2>{hero1.name}</h2>
           </div>
           <div className="vs-section">VS</div>
           <div className="hero-card">
-            <img src={hero2.image} alt={hero2.name} className="hero-image" />
+            <HeroImage src={hero2.image} alt={hero2.name} className="hero-image" />
             <h2>{hero2.name}</h2>
           </div>
         </div>
@@ -241,7 +259,7 @@ function App() {
                     </td>
                     <td>{hero.id}</td>
                     <td>{hero.name}</td>
-                    <td><img src={hero.image} alt={hero.name} width="50" /></td>
+                    <td><HeroImage src={hero.image} alt={hero.name} width="50" /></td>
                     <td>{hero.powerstats.intelligence}</td>
                     <td>{hero.powerstats.strength}</td>
                     <td>{hero.powerstats.speed}</td>
