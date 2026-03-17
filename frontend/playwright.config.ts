@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://127.0.0.1:3001',
+    baseURL: 'http://localhost:3001',
   },
   outputDir: 'test-results/',
   testMatch: '**/tests/**/*.@(spec|test).@(ts|js)',
@@ -17,14 +17,14 @@ export default defineConfig({
     {
       command: 'dotnet run',
       cwd: '../backend',
-      url: 'http://127.0.0.1:3000',
+      url: 'http://localhost:3000',
       reuseExistingServer: !process.env.CI,
       timeout: 120 * 1000,
     },
     {
-      command: 'npm start -- --host 127.0.0.1',
+      command: 'npm start',
       cwd: '.',
-      url: 'http://127.0.0.1:3001',
+      url: 'http://localhost:3001',
       reuseExistingServer: !process.env.CI,
       timeout: 120 * 1000,
     },

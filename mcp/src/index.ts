@@ -62,16 +62,14 @@ function calculateTotalStats(hero: Superhero): number {
     + hero.powerstats.combat;
 }
 
-server.registerTool(
+server.tool(
   'get_superhero',
+  'Get superhero details by name or id',
   {
-    description: 'Get superhero details by name or id',
-    inputSchema: {
-      name: z.string().optional().describe('Name of the superhero (optional)'),
-      id: z.string().optional().describe('ID of the superhero (optional)'),
-    },
+    name: z.string().optional().describe('Name of the superhero (optional)'),
+    id: z.string().optional().describe('ID of the superhero (optional)'),
   },
-  async ({ name, id }) => {
+  async ({ name, id }: { name?: string; id?: string }) => {
     const superheroes = await loadSuperheroes();
     const nameLc = name?.toLowerCase() ?? '';
     const idStr = id?.toString() ?? '';
@@ -98,12 +96,9 @@ server.registerTool(
   }
 );
 
-server.registerTool(
+server.tool(
   'list-superheroes',
-  {
-    description: 'Get a list of all superheroes with their IDs and names',
-    inputSchema: {},
-  },
+  'Get a list of all superheroes with their IDs and names',
   async () => {
     const superheroes = await loadSuperheroes();
     const text = superheroes
@@ -121,16 +116,14 @@ server.registerTool(
   }
 );
 
-server.registerTool(
+server.tool(
   'compare-superheroes',
+  'Compare two superheroes across all six powerstat dimensions',
   {
-    description: 'Compare two superheroes across all six powerstat dimensions',
-    inputSchema: {
-      hero1_id: z.string().describe('ID of the first superhero (required)'),
-      hero2_id: z.string().describe('ID of the second superhero (required)'),
-    },
+    hero1_id: z.string().describe('ID of the first superhero (required)'),
+    hero2_id: z.string().describe('ID of the second superhero (required)'),
   },
-  async ({ hero1_id, hero2_id }) => {
+  async ({ hero1_id, hero2_id }: { hero1_id: string; hero2_id: string }) => {
     const superheroes = await loadSuperheroes();
     const hero1 = superheroes.find((hero) => hero.id?.toString() === hero1_id);
     const hero2 = superheroes.find((hero) => hero.id?.toString() === hero2_id);
