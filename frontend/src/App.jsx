@@ -7,7 +7,7 @@ function HeroImage({ src, alt, className, width }) {
   if (!src || hasError) {
     return (
       <div
-        className={`hero-image-fallback ${className || ''}`.trim()}
+        className={`hero-image-fallback ${className || ''}`}
         style={width ? { width, height: width } : undefined}
         aria-label={`${alt} image unavailable`}
       >
@@ -16,7 +16,15 @@ function HeroImage({ src, alt, className, width }) {
     );
   }
 
-  return <img src={src} alt={alt} className={className} width={width} onError={() => setHasError(true)} />;
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      style={width ? { width, height: width } : undefined}
+      onError={() => setHasError(true)}
+    />
+  );
 }
 
 function App() {
@@ -39,6 +47,17 @@ function App() {
   }, []);
 
   const isHeroSelected = (heroId) => selectedHeroes.some((hero) => hero.id === heroId);
+  const getWinnerClass = (hero1Value, hero2Value) => {
+    if (hero1Value > hero2Value) {
+      return 'hero1';
+    }
+
+    if (hero2Value > hero1Value) {
+      return 'hero2';
+    }
+
+    return 'tie';
+  };
 
   const handleHeroSelection = (hero) => {
     setSelectedHeroes((previous) => {
@@ -158,7 +177,7 @@ function App() {
           {stats.map((stat) => {
             const hero1Value = hero1.powerstats[stat];
             const hero2Value = hero2.powerstats[stat];
-            const winnerClass = hero1Value > hero2Value ? 'hero1' : hero2Value > hero1Value ? 'hero2' : 'tie';
+            const winnerClass = getWinnerClass(hero1Value, hero2Value);
 
             return (
               <div key={stat} className="stat-row">

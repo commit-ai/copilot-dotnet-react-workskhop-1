@@ -9,7 +9,6 @@ var jsonOptions = new JsonSerializerOptions
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-var dataPath = Path.Combine(app.Environment.ContentRootPath, "data", "superheroes.json");
 
 app.MapGet("/", () => Results.Text("Save the World!", "text/plain"));
 
@@ -22,7 +21,7 @@ app.MapGet("/api/superheroes", async () =>
         : Results.Ok(superheroes);
 });
 
-app.MapGet("/api/superheroes/{id}", async (string id) =>
+app.MapGet("/api/superheroes/{id:int}", async (int id) =>
 {
     var superheroes = await LoadSuperheroesAsync();
 
@@ -31,14 +30,14 @@ app.MapGet("/api/superheroes/{id}", async (string id) =>
         return Results.Problem("Internal Server Error", statusCode: 500);
     }
 
-    var superhero = superheroes.FirstOrDefault(hero => hero.Id.ToString() == id);
+    var superhero = superheroes.FirstOrDefault(hero => hero.Id == id);
 
     return superhero == null
         ? Results.NotFound("Superhero not found")
         : Results.Ok(superhero);
 });
 
-app.MapGet("/api/superheroes/{id}/powerstats", async (string id) =>
+app.MapGet("/api/superheroes/{id:int}/powerstats", async (int id) =>
 {
     var superheroes = await LoadSuperheroesAsync();
 
@@ -47,7 +46,7 @@ app.MapGet("/api/superheroes/{id}/powerstats", async (string id) =>
         return Results.Problem("Internal Server Error", statusCode: 500);
     }
 
-    var superhero = superheroes.FirstOrDefault(hero => hero.Id.ToString() == id);
+    var superhero = superheroes.FirstOrDefault(hero => hero.Id == id);
 
     return superhero == null
         ? Results.NotFound("Superhero not found")
@@ -56,14 +55,17 @@ app.MapGet("/api/superheroes/{id}/powerstats", async (string id) =>
 
 app.MapPost("/api/battle-narration", (BattleNarrationRequest? request) =>
 {
-    if (request?.Hero1 == null || request.Hero2 == null || request.Hero1.Id == 0 || request.Hero2.Id == 0)
+    var hero1 = request?.Hero1;
+    var hero2 = request?.Hero2;
+
+    if (!IsValidHero(hero1) || !IsValidHero(hero2))
     {
         return Results.BadRequest(new { error = "Both heroes must be provided with valid data" });
     }
 
     return Results.Ok(new BattleNarrationResponse
     {
-        Narration = GenerateBattleNarration(request.Hero1, request.Hero2)
+        Narration = GenerateBattleNarration(hero1!, hero2!)
     });
 });
 
@@ -73,6 +75,8 @@ async Task<List<Superhero>?> LoadSuperheroesAsync()
 {
     try
     {
+        var dataPath = Path.Combine(app.Environment.ContentRootPath, "data", "superheroes.json");
+
         if (!File.Exists(dataPath))
         {
             return null;
@@ -128,6 +132,14 @@ static string GenerateBattleNarration(Superhero hero1, Superhero hero2)
             hero2Advantages.Add(statName);
         }
     }
+}
+
+static bool IsValidHero(Superhero? hero)
+{
+    return hero is not null
+        && hero.Id > 0
+        && !string.IsNullOrWhiteSpace(hero.Name)
+        && hero.Powerstats is not null;
 }
 
 public partial class Program { }
