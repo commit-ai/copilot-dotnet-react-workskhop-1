@@ -114,6 +114,23 @@ tr:hover {
   border: 3px solid #61dafb;
 }
 
+.table-hero-image {
+  width: 56px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #61dafb;
+  display: block;
+  margin: 0 auto;
+}
+
+.table-hero-image.hero-image-fallback {
+  width: 56px;
+  height: 76px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
 .hero-image-fallback {
   display: inline-flex;
   align-items: center;

@@ -278,7 +278,9 @@ function App() {
                     </td>
                     <td>{hero.id}</td>
                     <td>{hero.name}</td>
-                    <td><HeroImage src={hero.image} alt={hero.name} width="50" /></td>
+                    <td>
+                      <HeroImage src={hero.image} alt={hero.name} className="table-hero-image" width="56" />
+                    </td>
                     <td>{hero.powerstats.intelligence}</td>
                     <td>{hero.powerstats.strength}</td>
                     <td>{hero.powerstats.speed}</td>
