@@ -32,6 +32,24 @@ npm start
 ```
 - Check you can see the UI at http://localhost:3001/
 
+**Run frontend Playwright E2E tests:**
+- From `/frontend`, run:
+```
+npx playwright install chromium
+npm run test:e2e
+```
+- The Playwright config starts both the backend and frontend automatically for the E2E run.
+
+**Run MCP workshop package:**
+- From project root, navigate to dir `/mcp` and run:
+```
+cd mcp
+npm install
+npm run build
+npm test
+```
+- `mcp/mcp.json` points MCP clients at the built stdio server.
+
 ---
 
 **Legal Disclaimer:**
