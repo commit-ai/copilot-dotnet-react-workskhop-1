@@ -32,20 +32,11 @@ const superheroes = [
 ];
 
 beforeEach(() => {
-  global.fetch = vi.fn((url, options) => {
+  global.fetch = vi.fn((url) => {
     if (url === '/api/superheroes') {
       return Promise.resolve({
         ok: true,
         json: async () => superheroes,
-      });
-    }
-
-    if (url === '/api/battle-narration' && options?.method === 'POST') {
-      return Promise.resolve({
-        ok: true,
-        json: async () => ({
-          narration: 'Batman collides with Aquaman in a blockbuster showdown.',
-        }),
       });
     }
 
@@ -73,19 +64,4 @@ test('renders superheroes heading and allows comparing two heroes', async () => 
   expect(await screen.findByRole('heading', { name: /superhero comparison/i })).toBeInTheDocument();
   expect(screen.getByText(/aquaman wins!/i)).toBeInTheDocument();
   expect(screen.getByText(/score: 4-2/i)).toBeInTheDocument();
-});
-
-test('generates battle narration for the selected heroes', async () => {
-  render(<App />);
-
-  expect(await screen.findByText('Batman')).toBeInTheDocument();
-
-  const checkboxes = screen.getAllByRole('checkbox');
-  fireEvent.click(checkboxes[0]);
-  fireEvent.click(checkboxes[1]);
-  fireEvent.click(screen.getByRole('button', { name: /compare heroes/i }));
-
-  fireEvent.click(await screen.findByRole('button', { name: /generate epic battle story/i }));
-
-  expect(await screen.findByText(/blockbuster showdown/i)).toBeInTheDocument();
 });

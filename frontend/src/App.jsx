@@ -31,10 +31,7 @@ function App() {
   const [superheroes, setSuperheroes] = useState([]);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
   const [currentView, setCurrentView] = useState('table');
-  const [narration, setNarration] = useState('');
-  const [narrationLoading, setNarrationLoading] = useState(false);
   const [loadError, setLoadError] = useState('');
-  const [narrationError, setNarrationError] = useState('');
 
   useEffect(() => {
     fetch('/api/superheroes')
@@ -100,49 +97,12 @@ function App() {
   const handleCompare = () => {
     if (selectedHeroes.length === 2) {
       setCurrentView('comparison');
-      setNarration('');
-      setNarrationError('');
     }
   };
 
   const handleBackToTable = () => {
     setCurrentView('table');
     setSelectedHeroes([]);
-    setNarration('');
-    setNarrationError('');
-  };
-
-  const handleGetNarration = async () => {
-    if (selectedHeroes.length !== 2) {
-      return;
-    }
-
-    setNarrationLoading(true);
-    setNarrationError('');
-
-    try {
-      const response = await fetch('/api/battle-narration', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          hero1: selectedHeroes[0],
-          hero2: selectedHeroes[1],
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch battle narration');
-      }
-
-      const data = await response.json();
-      setNarration(data.narration);
-    } catch {
-      setNarrationError('Failed to generate battle narration. Please try again.');
-    } finally {
-      setNarrationLoading(false);
-    }
   };
 
   const renderComparison = () => {
@@ -201,32 +161,6 @@ function App() {
               <h3>🤝 It's a Tie!</h3>
               <p>Score: {result.score}</p>
             </>
-          )}
-        </div>
-
-        <div className="battle-narration-section">
-          <h2>Battle Narration</h2>
-          {!narration && !narrationLoading && !narrationError && (
-            <button className="compare-button narration-button" onClick={handleGetNarration}>
-              Generate Epic Battle Story
-            </button>
-          )}
-          {narrationLoading && <p>Generating epic battle narration...</p>}
-          {narrationError && (
-            <div className="narration-error">
-              <p>{narrationError}</p>
-              <button className="compare-button narration-button" onClick={handleGetNarration}>
-                Try Again
-              </button>
-            </div>
-          )}
-          {narration && (
-            <div className="narration-content">
-              <p>{narration}</p>
-              <button className="compare-button narration-button" onClick={handleGetNarration}>
-                Re-generate Battle
-              </button>
-            </div>
           )}
         </div>
       </div>
