@@ -53,15 +53,6 @@ function formatSuperheroMarkdown(hero: Superhero): string {
   • Combat: ${hero.powerstats.combat}`;
 }
 
-function calculateTotalStats(hero: Superhero): number {
-  return hero.powerstats.intelligence
-    + hero.powerstats.strength
-    + hero.powerstats.speed
-    + hero.powerstats.durability
-    + hero.powerstats.power
-    + hero.powerstats.combat;
-}
-
 server.tool(
   'get_superhero',
   'Get superhero details by name or id',
@@ -96,71 +87,7 @@ server.tool(
   }
 );
 
-server.tool(
-  'list-superheroes',
-  'Get a list of all superheroes with their IDs and names',
-  async () => {
-    const superheroes = await loadSuperheroes();
-    const text = superheroes
-      .map((hero) => `- ID: ${hero.id} - ${hero.name}`)
-      .join('\n');
-
-    return {
-      content: [
-        {
-          type: 'text' as const,
-          text,
-        },
-      ],
-    };
-  }
-);
-
-server.tool(
-  'compare-superheroes',
-  'Compare two superheroes across all six powerstat dimensions',
-  {
-    hero1_id: z.string().describe('ID of the first superhero (required)'),
-    hero2_id: z.string().describe('ID of the second superhero (required)'),
-  },
-  async ({ hero1_id, hero2_id }: { hero1_id: string; hero2_id: string }) => {
-    const superheroes = await loadSuperheroes();
-    const hero1 = superheroes.find((hero) => hero.id?.toString() === hero1_id);
-    const hero2 = superheroes.find((hero) => hero.id?.toString() === hero2_id);
-
-    if (!hero1 || !hero2) {
-      throw new Error('Superhero not found');
-    }
-
-    const stats: Array<keyof Powerstats> = ['intelligence', 'strength', 'speed', 'durability', 'power', 'combat'];
-    const comparisonLines = stats.map((stat) => {
-      const hero1Value = hero1.powerstats[stat];
-      const hero2Value = hero2.powerstats[stat];
-      const winnerName = hero1Value === hero2Value ? 'Tie' : hero1Value > hero2Value ? hero1.name : hero2.name;
-
-      return `- ${stat}: ${hero1.name} (${hero1Value}) vs ${hero2.name} (${hero2Value}) - Winner: ${winnerName}`;
-    });
-
-    const hero1Total = calculateTotalStats(hero1);
-    const hero2Total = calculateTotalStats(hero2);
-    const overallWinner = hero1Total === hero2Total ? 'Tie' : hero1Total > hero2Total ? hero1.name : hero2.name;
-    const overallWinnerTotal = hero1Total === hero2Total ? hero1Total : Math.max(hero1Total, hero2Total);
-
-    return {
-      content: [
-        {
-          type: 'text' as const,
-          text: [
-            `# ${hero1.name} vs ${hero2.name}`,
-            ...comparisonLines,
-            '',
-            `Overall winner: ${overallWinner} (${overallWinnerTotal} total stats)`,
-          ].join('\n'),
-        },
-      ],
-    };
-  }
-);
+// TODO: implement additional MCP tools using GitHub Copilot and the prompt in ../prompt.md
 
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
