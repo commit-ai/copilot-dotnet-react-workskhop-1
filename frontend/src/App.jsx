@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img src="/logo192.png" className="App-logo" alt="React logo" />
         <h1>Superheroes</h1>
         <table>
           <thead>
