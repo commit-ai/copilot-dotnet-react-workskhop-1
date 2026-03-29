@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "A-Bomb",
-        "image": "/assets/1-a-bomb.jpg",
+        "image": "1-a-bomb.jpg",
         "powerstats": {
             "intelligence": 38,
             "strength": 100,
@@ -15,7 +15,7 @@
     {
         "id": 2,
         "name": "Ant-Man",
-        "image": "/assets/30-ant-man.jpg",
+        "image": "30-ant-man.jpg",
         "powerstats": {
             "intelligence": 100,
             "strength": 18,
@@ -28,7 +28,7 @@
     {
         "id": 3,
         "name": "Bane",
-        "image": "/assets/60-bane.jpg",
+        "image": "60-bane.jpg",
         "powerstats": {
             "intelligence": 88,
             "strength": 38,
@@ -41,7 +41,7 @@
     {
         "id": 4,
         "name": "Batman",
-        "image": "/assets/70-batman.jpg",
+        "image": "70-batman.jpg",
         "powerstats": {
             "intelligence": 100,
             "strength": 26,
@@ -54,7 +54,7 @@
     {
         "id": 5,
         "name": "Black Widow",
-        "image": "/assets/107-black-widow.jpg",
+        "image": "107-black-widow.jpg",
         "powerstats": {
             "intelligence": 75,
             "strength": 13,
@@ -67,7 +67,7 @@
     {
         "id": 6,
         "name": "Captain America",
-        "image": "/assets/149-captain-america.jpg",
+        "image": "149-captain-america.jpg",
         "powerstats": {
             "intelligence": 69,
             "strength": 19,
@@ -80,7 +80,7 @@
     {
         "id": 7,
         "name": "Flash",
-        "image": "/assets/263-flash.jpg",
+        "image": "263-flash.jpg",
         "powerstats": {
             "intelligence": 63,
             "strength": 10,
@@ -93,7 +93,7 @@
     {
         "id": 8,
         "name": "Aquaman",
-        "image": "/assets/38-aquaman.jpg",
+        "image": "38-aquaman.jpg",
         "powerstats": {
             "intelligence": 81,
             "strength": 85,
@@ -106,7 +106,7 @@
     {
         "id": 9,
         "name": "Hulk",
-        "image": "/assets/332-hulk.jpg",
+        "image": "332-hulk.jpg",
         "powerstats": {
             "intelligence": 88,
             "strength": 100,
@@ -119,7 +119,7 @@
     {
         "id": 10,
         "name": "Iron Man",
-        "image": "/assets/346-iron-man.jpg",
+        "image": "346-iron-man.jpg",
         "powerstats": {
             "intelligence": 100,
             "strength": 85,
@@ -132,7 +132,7 @@
     {
         "id": 11,
         "name": "Spider-Man",
-        "image": "/assets/620-spider-man.jpg",
+        "image": "620-spider-man.jpg",
         "powerstats": {
             "intelligence": 90,
             "strength": 55,
@@ -145,7 +145,7 @@
     {
         "id": 12,
         "name": "Superman",
-        "image": "/assets/644-superman.jpg",
+        "image": "644-superman.jpg",
         "powerstats": {
             "intelligence": 94,
             "strength": 100,
@@ -158,7 +158,7 @@
     {
         "id": 13,
         "name": "Thor",
-        "image": "/assets/659-thor.jpg",
+        "image": "659-thor.jpg",
         "powerstats": {
             "intelligence": 69,
             "strength": 100,
@@ -171,7 +171,7 @@
     {
         "id": 14,
         "name": "Wonder Woman",
-        "image": "/assets/720-wonder-woman.jpg",
+        "image": "720-wonder-woman.jpg",
         "powerstats": {
             "intelligence": 94,
             "strength": 100,
@@ -184,7 +184,7 @@
     {
         "id": 15,
         "name": "Black Panther",
-        "image": "/assets/106-black-panther.jpg",
+        "image": "106-black-panther.jpg",
         "powerstats": {
             "intelligence": 88,
             "strength": 16,

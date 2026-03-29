@@ -34,7 +34,7 @@ function App() {
               <tr key={hero.id}>
                 <td>{hero.id}</td>
                 <td>{hero.name}</td>
-                <td><img src={hero.image} alt={hero.name} width="50" /></td>
+                <td><img src={`/assets/${hero.image}`} alt={hero.name} width="50" /></td>
                 <td>{hero.powerstats.intelligence}</td>
                 <td>{hero.powerstats.strength}</td>
                 <td>{hero.powerstats.speed}</td>
