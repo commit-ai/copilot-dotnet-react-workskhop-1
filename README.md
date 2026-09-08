@@ -37,8 +37,10 @@ npm start
 - From the project root, run:
 ```
 npm install
+npx playwright install --with-deps chromium
 npm run test:e2e
 ```
+- The `playwright install` step downloads the Chromium browser Playwright needs; it only has to be run once per machine (re-run it if `npm run test:e2e` fails with an executable-not-found error)
 - This starts the backend and frontend automatically and runs the e2e smoke test against http://localhost:3001/
 - Use `npm run test:e2e:ui` to run the tests with the Playwright UI
 
