@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Playwright config for end-to-end tests against the running app.
- * Boots the .NET backend (port 3000) and the Vite frontend (port 3001)
+ * Boots the .NET backend (port 5000) and the Vite frontend (port 3001)
  * automatically, then runs the smoke tests against the frontend URL.
  */
 export default defineConfig({
@@ -23,7 +23,7 @@ export default defineConfig({
     {
       command: 'dotnet run',
       cwd: '../backend',
-      url: 'http://localhost:3000/',
+      url: 'http://localhost:5000/',
       reuseExistingServer: !process.env.CI,
       timeout: 60_000,
     },

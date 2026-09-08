@@ -1,3 +1,5 @@
+# GitHub Copilot Workshop for Commit AI Customers
+
 **Dependencies:**
 
 - .NET SDK 10.x: Run `dotnet --version` and ensure it starts with `10.`
@@ -13,7 +15,7 @@ cd backend
 dotnet restore
 dotnet run
 ```
-- Check http://localhost:3000/ returns "Save the World!"
+- Check http://localhost:5000/ returns "Save the World!"
 
 **Run backend with auto-restart on file changes (.NET watch mode):**
 - In `/backend`, run:

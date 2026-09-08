@@ -38,6 +38,6 @@ app.MapGet("/api/superheroes", async () =>
     }
 });
 
-app.Run("http://localhost:3000");
+app.Run("http://localhost:5000");
 
 public partial class Program { }
