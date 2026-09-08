@@ -1,10 +1,10 @@
 **Dependencies:**
 
-- .NET SDK 8.x (LTS): Run `dotnet --version` and ensure it starts with `8.`
+- .NET SDK 10.x: Run `dotnet --version` and ensure it starts with `10.`
 - Node.js & npm: Ensure you have `Node.js version 20.x` or higher and npm installed
   - Run `node --version` and `npm --version` in your terminal to verify
 
-**Run backend server (.NET 8):**
+**Run backend server (.NET 10):**
 - Open the project folder in your IDE
 - Open the Terminal in your IDE
 - From project root, navigate to dir /backend and run:
@@ -31,6 +31,16 @@ npm install
 npm start
 ```
 - Check you can see the UI at http://localhost:3001/
+
+**Run end-to-end tests (Playwright):**
+- Make sure the backend and frontend dependencies are installed (see above)
+- From the project root, run:
+```
+npm install
+npm run test:e2e
+```
+- This starts the backend and frontend automatically and runs the e2e smoke test against http://localhost:3001/
+- Use `npm run test:e2e:ui` to run the tests with the Playwright UI
 
 ---
 
